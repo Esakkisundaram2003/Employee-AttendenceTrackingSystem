@@ -1,0 +1,64 @@
+.holiday-page-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #f5f7fb;
+    overflow-y: auto;
+}
+
+.holiday-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Table Card */
+.holiday-table-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Table styling */
+.holiday-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.holiday-table thead {
+    background: #eef1f7;
+}
+
+.holiday-table th,
+.holiday-table td {
+    padding: 14px;
+    font-size: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.holiday-table tr:hover {
+    background: #f9f9f9;
+}
+
+/* Holiday type badges */
+.holiday-type {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.holiday-public {
+    background-color: #4b7bec;
+}
+
+.holiday-company {
+    background-color: #20bf6b;
+}
+
+.holiday-special {
+    background-color: #fa8231;
+}
