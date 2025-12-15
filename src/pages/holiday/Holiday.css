@@ -7,58 +7,87 @@
 }
 
 .holiday-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    color: #333;
 }
 
-/* Table Card */
+/* Card */
 .holiday-table-card {
-    background: #fff;
-    padding: 20px;
+    background: #ffffff;
+    padding: 16px;
     border-radius: 12px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 94%;
+    /* margin-right: 50%; */
+    /* margin-left: 20%; */
+ 
 }
 
-/* Table styling */
+/* Scroll area */
+/* .holiday-table-wrapper {
+    max-height: 360px;
+    overflow-y: auto;
+} */
+
+/* Table */
 .holiday-table {
-    width: 100%;
+    width: 100%; 
     border-collapse: collapse;
 }
 
-.holiday-table thead {
+/* Header */
+.holiday-table-head {
+    background: #eef1f7;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}  
+
+.holiday-table-row {
+    transition: background 0.2s ease;
+}
+
+.holiday-table-row:hover {
+    background: #f9f9f9;
+}
+/* Zebra striping */
+.holiday-table-body .holiday-table-row:nth-child(odd) {
+    background-color: #ffffff;   /* white */
+}
+
+.holiday-table-body .holiday-table-row:nth-child(even) {
+    background-color: #f2f2f2;   /* light grey */
+}
+
+
+.holiday-table-row-head {
     background: #eef1f7;
 }
 
-.holiday-table th,
-.holiday-table td {
-    padding: 14px;
+/* Cells */
+.holiday-table-cell {
+    padding: 7px 20px;
     font-size: 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e0e0e0;
     text-align: left;
+    white-space: nowrap;
 }
 
-.holiday-table tr:hover {
-    background: #f9f9f9;
+.holiday-table-head-cell {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+.holidaypage{
+    margin-top: 16%;
+}
+/* Column sizing */
+.holiday-table-cell:nth-child(1) {
+    width: 60px;
 }
 
-/* Holiday type badges */
-.holiday-type {
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.holiday-public {
-    background-color: #4b7bec;
-}
-
-.holiday-company {
-    background-color: #20bf6b;
-}
-
-.holiday-special {
-    background-color: #fa8231;
+.holiday-table-cell:nth-child(5) {
+    width: 80px;
 }

@@ -2,152 +2,72 @@ import "./Holiday.css";
 
 export default function HolidayPage() {
 
-  // Example API-response holidays
   const holidays = [
-     {
-      id: 1,
-      FromDate: "2025-12-25",
-      ToDate: "2025-12-25",
-      Holiday: "Christmas",
-      day: "4",
-      Year: 2025
-    },
-    {
-      id: 2,
-      FromDate: "2025-01-01",
-      ToDate: "2025-01-01",
-      Holiday: "New Year",
-      day: "3",
-      Year: 2025
-    },
-    {
-      id: 3,
-      FromDate: "2025-04-18",
-      ToDate: "2025-04-18",
-      Holiday: "Good Friday",
-      day: "5",
-      Year: 2025
-    },
-    {
-      id: 4,
-      FromDate: "2025-12-25",
-      ToDate: "2025-12-25",
-      Holiday: "Christmas",
-      day: "4",
-      Year: 2025
-    },
-    {
-      id: 5,
-      FromDate: "2025-01-01",
-      ToDate: "2025-01-01",
-      Holiday: "New Year",
-      day: "3",
-      Year: 2025
-    },
-    {
-      id: 6,
-      FromDate: "2025-04-18",
-      ToDate: "2025-04-18",
-      Holiday: "Good Friday",
-      day: "5",
-      Year: 2025
-    },
-     {
-      id: 7,
-      FromDate: "2025-12-25",
-      ToDate: "2025-12-25",
-      Holiday: "Christmas",
-      day: "4",
-      Year: 2025
-    },
-    {
-      id: 8,
-      FromDate: "2025-01-01",
-      ToDate: "2025-01-01",
-      Holiday: "New Year",
-      day: "3",
-      Year: 2025
-    },
-    {
-      id: 9,
-      FromDate: "2025-04-18",
-      ToDate: "2025-04-18",
-      Holiday: "Good Friday",
-      day: "5",
-      Year: 2025
-    },
-     {
-      id: 10,
-      FromDate: "2025-12-25",
-      ToDate: "2025-12-25",
-      Holiday: "Christmas",
-      day: "4",
-      Year: 2025
-    },
-    {
-      id: 11,
-      FromDate: "2025-01-01",
-      ToDate: "2025-01-01",
-      Holiday: "New Year",
-      day: "3",
-      Year: 2025
-    },
-    {
-      id: 12,
-      FromDate: "2025-04-18",
-      ToDate: "2025-04-18",
-      Holiday: "Good Friday",
-      day: "5",
-      Year: 2025
-    }
+    { id: 1, FromDate: "2025-12-25", ToDate: "2025-12-25", Holiday: "Christmas", Year: 2025 },
+    { id: 2, FromDate: "2025-01-01", ToDate: "2025-01-01", Holiday: "New Year", Year: 2025 },
+    { id: 3, FromDate: "2025-04-18", ToDate: "2025-04-18", Holiday: "Good Friday", Year: 2025 },
+    { id: 4, FromDate: "2025-12-25", ToDate: "2025-12-25", Holiday: "Christmas", Year: 2025 },
+    { id: 5, FromDate: "2025-01-01", ToDate: "2025-01-01", Holiday: "New Year", Year: 2025 },
+    { id: 6, FromDate: "2025-04-18", ToDate: "2025-04-18", Holiday: "Good Friday", Year: 2025 },
+    { id: 7, FromDate: "2025-12-25", ToDate: "2025-12-25", Holiday: "Christmas", Year: 2025 },
+    { id: 8, FromDate: "2025-01-01", ToDate: "2025-01-03", Holiday: "New Year", Year: 2025 },
+    { id: 9, FromDate: "2025-04-18", ToDate: "2025-04-18", Holiday: "Good Friday", Year: 2025 },
+    { id: 10, FromDate: "2025-12-25", ToDate: "2025-12-25", Holiday: "Christmas", Year: 2025 },
+    { id: 11, FromDate: "2025-04-18", ToDate: "2025-04-18", Holiday: "Good Friday", Year: 2025 },
+    { id: 12, FromDate: "2025-12-25", ToDate: "2025-12-25", Holiday: "Christmas", Year: 2025 }
   ];
 
-  // Convert date to readable format
-  const formatDate = (dateStr) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString("en-GB", {
+  const formatDate = (dateStr) =>
+    new Date(dateStr).toLocaleDateString("en-GB", {
       day: "2-digit",
-      month: "short",
+      month: "2-digit",
       year: "numeric",
     });
-  };
 
-  // Convert day number → weekday name
-  const getDayName = (dayNum) => {
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    return days[Number(dayNum)];
-  }; 
+  const getDayCount = (from, to) => {
+    const start = new Date(from);
+    const end = new Date(to);
+    start.setHours(0, 0, 0, 0);
+    end.setHours(0, 0, 0, 0);
+    return Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
+  };
 
   return (
     <div className="holiday-page-container">
-      <h2 className="holiday-title">Holiday List</h2>
+      <div className="holidaypage">
+      {/* <h2 className="holiday-title">Holiday List</h2> */}
 
       <div className="holiday-table-card">
-        <table className="holiday-table">
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Holiday Name</th>
-              <th>From Date</th>
-              <th>To Date</th>
-              <th>Year</th>
-              <th>Days</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {holidays.map((h, i) => (
-              <tr key={h.id}>
-                <td>{i + 1}</td>
-                <td>{h.Holiday}</td>
-                <td>{formatDate(h.FromDate)}</td>
-                <td>{formatDate(h.ToDate)}</td>
-                <td>{h.Year}</td>
-                <td>{getDayName(h.day)}</td>
+        <div className="holiday-table-wrapper">
+          <table className="holiday-table">
+            <thead className="holiday-table-head">
+              <tr className="holiday-table-row holiday-table-row-head">
+                <th className="holiday-table-cell holiday-table-head-cell">S.No</th>
+                <th className="holiday-table-cell holiday-table-head-cell">Holiday Name</th>
+                <th className="holiday-table-cell holiday-table-head-cell">From Date</th>
+                <th className="holiday-table-cell holiday-table-head-cell">To Date</th>
+                <th className="holiday-table-cell holiday-table-head-cell">Year</th>
+                <th className="holiday-table-cell holiday-table-head-cell">Days</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody className="holiday-table-body">
+              {holidays.map((h, i) => (
+                <tr key={h.id} className="holiday-table-row">
+                  <td className="holiday-table-cell">{i + 1}</td>
+                  <td className="holiday-table-cell">{h.Holiday}</td>
+                  <td className="holiday-table-cell">{formatDate(h.FromDate)}</td>
+                  <td className="holiday-table-cell">{formatDate(h.ToDate)}</td>
+                  <td className="holiday-table-cell">{h.Year}</td>
+                  <td className="holiday-table-cell">
+                    {getDayCount(h.FromDate, h.ToDate)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        </div>
       </div>
     </div>
   );
