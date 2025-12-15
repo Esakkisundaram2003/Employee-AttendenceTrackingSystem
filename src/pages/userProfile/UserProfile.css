@@ -1,0 +1,83 @@
+/* Page container */
+.userprofile-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #f5f7fb;
+    overflow-y: auto;
+}
+
+/* QR Section */
+.qr-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.qr-image {
+    width: 160px;
+    height: 160px;
+}
+
+/* Card */
+.profile-table-card {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 94%;
+    margin-top: 40px;
+}
+
+/* Table */
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Rows */
+.profile-row {
+    transition: background 0.2s ease;
+}
+
+/* Hover */
+.profile-row:hover {
+    background: #f9f9f9;
+}
+
+/* Zebra striping */
+.profile-table-body .profile-row:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.profile-table-body .profile-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Cells */
+.profile-label,
+.profile-value {
+    padding: 7px 20px;
+    font-size: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Label emphasis */
+.profile-label {
+    font-weight: 600;
+    color: #333;
+    width: 35%;
+}
+
+/* Value text */
+.profile-value {
+    color: #222;
+    width: 65%;
+}
+
+/* Remove border from last row */
+.profile-row:last-child .profile-label,
+.profile-row:last-child .profile-value {
+    border-bottom: none;
+}
