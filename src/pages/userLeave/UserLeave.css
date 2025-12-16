@@ -249,12 +249,15 @@
 
 }
 
-.lve-frm-btnns {
-  padding: 8px 14px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+.lve-frm-btnns1 {
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+.lve-frm-btnns2 {
+  background: #2c6fff;
+  border: none;
+  color: #fff;
 }
 
 /* Cancel button */
@@ -271,7 +274,11 @@
 }
 
 /* Hover */
-.lve-frm-btnns:hover {
-  background:;
+.lve-frm-btnns1:hover {
+  background: rgb(235, 235, 235);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.lve-frm-btnns2:hover {
+  background-color: #0051ff;
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }

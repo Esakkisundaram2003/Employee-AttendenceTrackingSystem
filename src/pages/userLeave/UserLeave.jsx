@@ -136,14 +136,14 @@ function UserLeave() {
 
           <div className="form-actions">
             <button
-                className="lve-frm-btnns cancel-btn"
+                className="lve-frm-btnns1"
                 type="button"
                 onClick={() => setShowForm(false)}>
                  Cancel
-                  </button>
+            </button>
 
                 <button
-                     className="lve-frm-btnns submit-btn"
+                     className="lve-frm-btnns2"
                       type="submit"  >
                      Submit
                    </button>
