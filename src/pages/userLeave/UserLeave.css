@@ -55,7 +55,8 @@
   position: absolute;
   top: -50px;           /* clean separation */
   right: 8px;
-
+  height: 40px;
+  width: auto;
   padding: 8px 16px;
   font-size: 13px;
   font-weight: 500;
@@ -153,7 +154,7 @@
 ================================ */
 .leave-drawer {
   position: fixed;
-  top: 0;
+  top: -14px;
   right: 0;
   width: 25.33%;
   height: 100vh;
@@ -185,6 +186,13 @@
   gap: 6px;
   margin-bottom: 14px;
   font-size: 14px;
+}
+.leave-form select {
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  padding-left: 10px;
 }
 
 .leave-form input,
@@ -223,4 +231,25 @@
 .form-actions button[type="button"] {
   background: transparent;
   border: 1px solid #ccc;
+}
+
+.leave-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #fff;
+  padding-right: 32px; /* space for custom arrow */
+  
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23666' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center; /* 👈 move left/right here */
+  background-size: 10px 6px;
+  background-position: right 16px center;
+
+}
+
+.form-actions button[type="submit"] :hover{
+  background-color: #fff453;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
