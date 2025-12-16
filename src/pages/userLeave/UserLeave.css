@@ -222,7 +222,7 @@
   cursor: pointer;
 }
 
-.form-actions button[type="submit"] {
+/* .form-actions button[type="submit"] {
   background: #2c6fff;
   border: none;
   color: #fff;
@@ -231,7 +231,7 @@
 .form-actions button[type="button"] {
   background: transparent;
   border: 1px solid #ccc;
-}
+} */
 
 .leave-form select {
   appearance: none;
@@ -249,7 +249,29 @@
 
 }
 
-.form-actions button[type="submit"] :hover{
-  background-color: #fff453;
+.lve-frm-btnns {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Cancel button */
+.cancel-btn {
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+/* Submit button */
+.submit-btn {
+  background: #2c6fff;
+  border: none;
+  color: white;
+}
+
+/* Hover */
+.lve-frm-btnns:hover {
+  background:;
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
