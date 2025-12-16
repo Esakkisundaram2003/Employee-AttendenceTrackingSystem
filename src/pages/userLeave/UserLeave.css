@@ -180,12 +180,28 @@
   font-size: 20px;
 }
 
-.leave-form label {
+/* .leave-form-label {
   display: flex;
   flex-direction: column;
   gap: 6px;
   margin-bottom: 14px;
   font-size: 14px;
+} */
+ .leave-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.label-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.required {
+  color: red;
 }
 .leave-form select {
   height: 36px;

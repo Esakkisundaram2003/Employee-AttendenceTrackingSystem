@@ -104,35 +104,36 @@ function UserLeave() {
       <div className={`leave-drawer ${showForm ? "open" : ""}`}>
         <h2>Apply Leave</h2>
 
-        <form className="leave-form">
-          <label>
-            Period
-            <select required>
+        <form className="leave-form" noValidate>
+          <label className="leave-form-label"><span className="label-text">
+            Period<span className="required">*</span></span>
+            <select required>  
               <option value="">Select</option>
               <option value="fullday">Full Day</option>
               <option value="halfday">Half Day</option>
             </select>
           </label>
 
-          <label>
-            From Date
+          <label className="leave-form-label"><span className="label-text">
+            From Date* <span className="required">*</span></span>
             <input type="date" required />
           </label>
 
-          <label>
-            To Date
+          <label className="leave-form-label"><span className="label-text">
+            To Date* <span className="required">*</span></span>
             <input type="date" required />
           </label>
 
-          <label>
-            Duration
+          <label className="leave-form-label"><span className="label-text">
+            Duration* <span className="required">*</span></span>
             <input type="number" min="1" required />
           </label>
 
-          <label>
-            Reason
-            <textarea rows="3" required />
-          </label>
+        <label className="leave-form-label">
+    Reason 
+  <textarea rows="3" required />
+</label>
+
 
           <div className="form-actions">
             <button
