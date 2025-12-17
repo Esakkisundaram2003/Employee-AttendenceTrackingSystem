@@ -101,7 +101,9 @@ background:#0051ff5c;
 .sidebar.collapsed {
   width: 70px;
 }
-
+.sidebar.collapsed .menu{
+  margin-top: 95px;
+}
 .sidebar.collapsed .toggle-btn {
   right: 25%;
 }
@@ -109,6 +111,7 @@ background:#0051ff5c;
 /* Center menu icons */
 .sidebar.collapsed .menu-link {
   justify-content: center;
+  
 }
 
 /* Menu text smooth hide */
@@ -131,7 +134,7 @@ background:#0051ff5c;
 .sidebar.collapsed .employeesimage-avatar {
   width: 36px;
   height: 36px;
-  margin-top: 80%;
+  margin-top: 10vh;
   border-width: 2px;
 }
 
@@ -167,3 +170,33 @@ background:#0051ff5c;
   visibility: visible;
   transform: translateX(0);
 }
+/* Push logout to bottom 
+.sidebar-logout {
+  margin-top: 20vh;
+  width: 100%;
+  /* padding-bottom: 20px; 
+}
+
+/* Logout button styling 
+.logout-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hover effect 
+ .logout-btn:hover {
+  background:#0051ff5c;
+}
+
+/* Center icon when collapsed 
+.sidebar.collapsed .logout-btn {
+  justify-content: center;
+}
+*/

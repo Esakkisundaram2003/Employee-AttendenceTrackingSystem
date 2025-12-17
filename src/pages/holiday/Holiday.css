@@ -1,8 +1,9 @@
+
 .holiday-page-container {
     width: 100%;
     height: 100%;
-    padding: 20px;
-    background: #f5f7fb;
+    /* padding: 20px; */
+    /* background: #f5f7fb; */
     overflow-y: auto;
 }
 
@@ -40,18 +41,18 @@
 /* Header */
 .holiday-table-head {
     background: #eef1f7;
-    position: sticky;
-    top: 0;
-    z-index: 2;
+    /* position: sticky; */
+    /* top: 0;
+    z-index: 2; */
 }  
 
 .holiday-table-row {
     transition: background 0.2s ease;
 }
 
-.holiday-table-row:hover {
+/* .holiday-table-row:hover {
     background: #f9f9f9;
-}
+} */
 /* Zebra striping */
 .holiday-table-body .holiday-table-row:nth-child(odd) {
     background-color: #ffffff;   /* white */
@@ -81,7 +82,9 @@
     color: #333;
 }
 .holidaypage{
-    margin-top: 16%;
+    margin-top: 27vh;
+    margin-left: 7vh;
+
 }
 /* Column sizing */
 .holiday-table-cell:nth-child(1) {

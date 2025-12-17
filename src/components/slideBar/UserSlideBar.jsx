@@ -9,12 +9,11 @@ import {
   MdOutlineCalendarToday,
   MdPerson,
    MdKeyboardDoubleArrowLeft,
-  MdKeyboardDoubleArrowRight
+   MdKeyboardDoubleArrowRight,  //MdLogout
 } from "react-icons/md";
 
-export default function Sidebar() {
+export default function Sidebar({ collapsed, setCollapsed }) {
   const location = useLocation();
-  const [collapsed, setCollapsed] = useState(false);
 
   const menuItems = [
     { name: "Dashboard", path: "/", icon: <MdDashboard /> },
@@ -23,56 +22,71 @@ export default function Sidebar() {
     { name: "Leave", path: "/leave", icon: <MdFactCheck /> },
     { name: "Holiday", path: "/holiday", icon: <MdOutlineCalendarToday /> }
   ];
+ // const handleLogout = () => {
+//  // Example logic
+//   localStorage.clear();        // or remove token only
+//   sessionStorage.clear();
+
+//   // optional: redirect to login page
+//   window.location.href = "/login";
+ //};
 
   return (
     <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-      
-      {/* 🔽 Toggle Button */}
+
+      {/* Toggle */}
       <button
         className="toggle-btn"
-        onClick={() => setCollapsed(!collapsed)}
+        onClick={() => setCollapsed(prev => !prev)}
       >
-       {collapsed ? (
-    <MdKeyboardDoubleArrowRight />
-  ) : (
-    <MdKeyboardDoubleArrowLeft />
-  )}
+        {collapsed ? (
+          <MdKeyboardDoubleArrowRight />
+        ) : (
+          <MdKeyboardDoubleArrowLeft />
+        )}
       </button>
 
       <div className="employeesimage">
-  <img
-    src={employeeimage}
-    alt="Employee"
-    className="employeesimage-avatar"
-  />
-</div>
+        <img
+          src={employeeimage}
+          alt="Employee"
+          className="employeesimage-avatar"
+        />
+      </div>
 
       <ul className="menu">
-        {menuItems.map((item) => (
+        {menuItems.map(item => (
           <li
             key={item.name}
-            className={
-              location.pathname === item.path
-                ? "menu-item active"
-                : "menu-item"
-            }
+            className={`menu-item ${
+              location.pathname === item.path ? "active" : ""
+            }`}
           >
-           <Link to={item.path} className="menu-link">
-  <span className="menu-icon-wrapper">
-    <span className="menu-icon">{item.icon}</span>
+            <Link to={item.path} className="menu-link">
+              <span className="menu-icon-wrapper">
+                <span className="menu-icon">{item.icon}</span>
+                <span className="menu-tooltip">{item.name}</span>
+              </span>
 
-    {/* Tooltip text */}
-    <span className="menu-tooltip">{item.name}</span>
-  </span>
-
-  {!collapsed && (
-    <span className="menu-text">{item.name}</span>
-  )}
-</Link>
-
+              {!collapsed && (
+                <span className="menu-text">{item.name}</span>
+              )}
+            </Link>
           </li>
         ))}
       </ul>
+      {/* <div className="sidebar-logout">
+  <button className="logout-btn" onClick={handleLogout}>
+    <span className="menu-icon-wrapper">
+      <span className="menu-icon">
+        <MdLogout />
+      </span>
+      <span className="menu-tooltip">Logout</span>
+    </span>
+
+    {!collapsed && <span className="menu-text">Logout</span>}
+  </button>
+</div> */}
     </div>
   );
 }
