@@ -36,7 +36,7 @@
 /* ===============================
    Table card
 ================================ */
-.profile-table-card-2 {
+.leave-table-card-2 {
   position: relative; /* anchor for floating button */
   margin-top: 105px;
   background: #ffffff;
@@ -76,7 +76,7 @@
 /* ===============================
    Table
 ================================ */
-.profile-table {
+.leave-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
@@ -85,49 +85,49 @@
 /* ===============================
    Table rows
 ================================ */
-.profile-row {
+.leave-row {
   transition: background 0.2s ease;
 }
 
-.profile-row:hover {
+.leave-row:hover {
   background: #f9f9f9;
 }
 
 /* Zebra striping */
-.profile-table-body .profile-row:nth-child(odd) {
+.leave-table-body .leave-row:nth-child(odd) {
   background-color: #ffffff;
 }
 
-.profile-table-body .profile-row:nth-child(even) {
+.leave-table-body .leave-row:nth-child(even) {
   background-color: #f2f2f2;
 }
 
 /* ===============================
    Table cells
 ================================ */
-.profile-label,
-.profile-value {
+.leave-label,
+.leave-value {
   padding: 10px 14px;
   font-size: 14px;
   border-bottom: 1px solid #e0e0e0;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.profile-label {
+.leave-label {
   font-weight: 600;
   color: #333;
   background: #f5f7fb;
 }
 
-.profile-value {
+.leave-value {
   color: #222;
 }
 
-.profile-row:last-child .profile-label,
-.profile-row:last-child .profile-value {
+.leave-row:last-child .leave-label,
+.leave-row:last-child .leave-value {
   border-bottom: none;
 }
 

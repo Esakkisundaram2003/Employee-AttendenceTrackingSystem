@@ -133,7 +133,7 @@ function UserLeave() {
         </div>
 
         {/* TABLE */}
-        <div className="profile-table-card-2">
+        <div className="leave-table-card-2">
           <button
             className="apply-btn floating-action"
             onClick={() => setShowForm(true)}
@@ -141,29 +141,29 @@ function UserLeave() {
             Apply Leave
           </button>
 
-          <table className="profile-table">
+          <table className="leave-table">
             <thead>
-              <tr className="profile-row">
-                <th className="profile-label">Application Date</th>
-                <th className="profile-label">Period</th>
-                <th className="profile-label">From Date</th>
-                <th className="profile-label">To Date</th>
-                <th className="profile-label">Duration</th>
-                <th className="profile-label">Status</th>
+              <tr className="leave-row">
+                <th className="leave-label">Application Date</th>
+                <th className="leave-label">Period</th>
+                <th className="leave-label">From Date</th>
+                <th className="leave-label">To Date</th>
+                <th className="leave-label">Duration</th>
+                <th className="leave-label">Status</th>
               </tr>
             </thead>
-            <tbody className="profile-table-body">
+            <tbody className="leave-table-body">
               {leaveResponse.data.map((leave) => (
-                <tr key={leave.id} className="profile-row">
-                  <td className="profile-value">
+                <tr key={leave.id} className="leave-row">
+                  <td className="leave-value">
                     {leave.applicationDate.split("T")[0]}
                   </td>
 
-                  <td className="profile-value">{leave.period}</td>
-                  <td className="profile-value">{leave.fromDate}</td>
-                  <td className="profile-value">{leave.toDate}</td>
-                  <td className="profile-value">{leave.duration}</td>
-                  <td className="profile-value">{leave.leaveStatus}</td>
+                  <td className="leave-value">{leave.period}</td>
+                  <td className="leave-value">{leave.fromDate}</td>
+                  <td className="leave-value">{leave.toDate}</td>
+                  <td className="leave-value">{leave.duration}</td>
+                  <td className="leave-value">{leave.leaveStatus}</td>
                 </tr>
               ))}
             </tbody>

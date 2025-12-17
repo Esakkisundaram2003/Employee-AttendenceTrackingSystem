@@ -1,5 +1,162 @@
-.user-dashboard {
+.dashboard-container {
   padding: 20px;
-  background: #fff;
-  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  
+}
+
+/* ================= HEADER ================= */
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.dashboard-username {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.dashboard-date {
+  margin: 4px 0 0;
+  color: #555;
+  font-size: 14px;
+}
+/* ================= FIX SCROLL ================= */
+.dashboard-calendar {
+  height: 470px;          /* fixed height */
+  overflow: hidden;       /* hide any overflow scroll */
+}
+
+/* Make calendar rows scale to fit the fixed height */
+.react-calendar__month-view__days {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);  /* always 6 rows even if month has 5 weeks */
+  row-gap: 6px;                        /* keep your existing spacing */
+}
+
+/* ================= CARDS ================= */
+.dashboard-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.dashboard-card {
+  flex: 1;
+  border: 2px solid black;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.card-title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.card-value {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ================= CALENDAR WRAPPER ================= */
+.dashboard-calendar {
+  margin-top: 24px;
+  max-width: 100%;
+  border: 2px solid #0000001c;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* ================= REACT CALENDAR OVERRIDE ================= */
+.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+}
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Navigation */
+.react-calendar__navigation button {
+  font-weight: 600;
+}
+
+/* ================= CALENDAR TILE SIZE (SLIGHTLY SMALLER) ================= */
+.react-calendar__tile {
+  height: 60px;          /* reduced from 65px */
+  max-height: 60px;
+  padding: 6px 6px;      /* slightly smaller padding */
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+/* Space between rows */
+.react-calendar__month-view__days {
+  row-gap: 6px;          /* slightly reduced */
+}
+
+/* Weekday header */
+.react-calendar__month-view__weekdays__weekday {
+  padding: 6px 0;
+  font-size: 13px;
+}
+
+/* ================= TODAY STYLE (REMOVE BOX) ================= */
+.react-calendar__tile--now {
+  background: transparent !important;  /* remove the blue box */
+  color: inherit;                      /* keep default text color */
+  font-weight: normal;                  /* optional */
+}
+
+/* ================= SELECTED DATE (NO BOX) ================= */
+.react-calendar__tile--active {
+  background: transparent !important;
+  color: #2563eb !important;
+  font-weight: 700;
+}
+
+/* Underline selected date */
+.react-calendar__tile--active abbr {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ================= REMOVE HOVER BOX ================= */
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: transparent;
+}
+/* ================= DATE COLORING ================= */
+.current-date {
+  color: red !important;          /* Today */
+}
+
+.approved-leave-date {
+  color: blue !important;         /* Approved leave */
+}
+
+.pending-leave-date {
+  color: yellow !important;       /* Pending leave */
+}
+
+.holiday-date {
+  color: rgb(6, 249, 6) !important;        /* Holiday */
+}
+
+.past-date {
+  color: black !important;        /* Past dates */
+}
+
+.future-date {
+  color: #aaa !important;         /* Future dates */
+}
+/* Optional: remove box for selected/hover */
+.react-calendar__tile--active,
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: transparent !important;
 }
