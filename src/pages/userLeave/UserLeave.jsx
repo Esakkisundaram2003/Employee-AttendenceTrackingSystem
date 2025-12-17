@@ -1,12 +1,25 @@
 import { useState } from "react";
 import "./UserLeave.css";
+import leaveValidation from "../../validations/LeaveValidation";
 
 function UserLeave() {
   const [showForm, setShowForm] = useState(false);
 
+  const [formValues, setFormValues] = useState({
+    period: "",
+    fromDate: "",
+    toDate: "",
+    duration: 0,
+    reason: ""
+  });
+
+  const [formErrors, setFormErrors] = useState({});
+  const [fromDay, setFromDay] = useState("");
+  const [toDay, setToDay] = useState("");
+
+  /* ---------------- MOCK DATA ---------------- */
   const leaveResponse = {
     status: "success",
-    message: "successfully fetched the user leave details",
     data: [
       {
         id: 1,
@@ -24,34 +37,91 @@ function UserLeave() {
     ]
   };
 
-  const totalLeave =
-    leaveResponse.data.length > 0
-      ? leaveResponse.data[0].totalLeave
-      : 0;
+  const totalLeave = leaveResponse.data[0]?.totalLeave || 0;
+  const leaveTaken = leaveResponse.data[0]?.leaveTaken || 0;
+  const leaveRemaining = leaveResponse.data[0]?.leaveRemaining || 0;
 
-  const leaveTaken =
-    leaveResponse.data.length > 0
-      ? leaveResponse.data[0].leaveTaken
-      : 0;
+  /* ---------------- HELPERS ---------------- */
+  const getDayName = (date) =>
+    new Date(date).toLocaleDateString("en-US", { weekday: "long" });
 
-  const leaveRemaining =
-    leaveResponse.data.length > 0
-      ? leaveResponse.data[0].leaveRemaining
-      : 0;
+  const calculateDuration = (start, end, period) => {
+    if (!start || !end) return 0;
 
+    if (start === end) {
+      if (period === "halfday") return 0.5;
+      return 1;
+    }
+
+    const s = new Date(start);
+    const e = new Date(end);
+    if (e < s) return 0;
+
+    let count = 0;
+    const d = new Date(s);
+
+    while (d <= e) {
+      const day = d.getDay();
+      if (day !== 0 && day !== 6) count++;
+      d.setDate(d.getDate() + 1);
+    }
+
+    return count;
+  };
+
+
+  /* ---------------- HANDLERS ---------------- */
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    const updated = { ...formValues, [name]: value };
+
+    updated.duration = calculateDuration(
+      updated.fromDate,
+      updated.toDate,
+      updated.period
+    );
+
+    setFormValues(updated);
+
+    if (name === "fromDate") setFromDay(value ? getDayName(value) : "");
+    if (name === "toDate") setToDay(value ? getDayName(value) : "");
+
+    const error = leaveValidation(name, value, updated);
+    setFormErrors((prev) => ({ ...prev, [name]: error }));
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let errors = {};
+    let hasError = false;
+
+    Object.keys(formValues).forEach((key) => {
+      const err = leaveValidation(key, formValues[key], formValues);
+      if (err) {
+        errors[key] = err;
+        hasError = true;
+      }
+    });
+
+    setFormErrors(errors);
+    if (hasError) return;
+
+    console.log("SUBMITTED DATA:", formValues);
+    setShowForm(false);
+  };
+
+  /* ---------------- JSX ---------------- */
   return (
     <>
-      {/* Overlay */}
       {showForm && (
-        <div
-          className="overlay"
-          onClick={() => setShowForm(false)}
-        />
+        <div className="overlay" onClick={() => setShowForm(false)} />
       )}
 
-      {/* Main Content */}
       <div className={`userleave ${showForm ? "blurred" : ""}`}>
-        {/* Info boxes */}
+        {/* SUMMARY */}
         <div className="leave-grid">
           <h3 className="info-box">Total Leave: {totalLeave}</h3>
           <h3 className="info-box">
@@ -62,7 +132,7 @@ function UserLeave() {
           </h3>
         </div>
 
-        {/* Table Card */}
+        {/* TABLE */}
         <div className="profile-table-card-2">
           <button
             className="apply-btn floating-action"
@@ -86,8 +156,9 @@ function UserLeave() {
               {leaveResponse.data.map((leave) => (
                 <tr key={leave.id} className="profile-row">
                   <td className="profile-value">
-                    {new Date(leave.applicationDate).toLocaleDateString()}
+                    {leave.applicationDate.split("T")[0]}
                   </td>
+
                   <td className="profile-value">{leave.period}</td>
                   <td className="profile-value">{leave.fromDate}</td>
                   <td className="profile-value">{leave.toDate}</td>
@@ -100,54 +171,88 @@ function UserLeave() {
         </div>
       </div>
 
-      {/* Slide-in Drawer */}
+      {/* DRAWER FORM */}
       <div className={`leave-drawer ${showForm ? "open" : ""}`}>
         <h2>Apply Leave</h2>
 
-        <form className="leave-form" noValidate>
-          <label className="leave-form-label"><span className="label-text">
-            Period<span className="required">*</span></span>
-            <select required>  
+        <form className="leave-form" onSubmit={handleSubmit} noValidate>
+          {/* Period */}
+          <label className="leave-form-label">
+            <span className="label-text">Period *</span>
+            <select
+              name="period"
+              value={formValues.period}
+              onChange={handleChange}
+            >
               <option value="">Select</option>
               <option value="fullday">Full Day</option>
               <option value="halfday">Half Day</option>
             </select>
+            {formErrors.period && (
+              <div className="form-error">{formErrors.period}</div>
+            )}
           </label>
 
-          <label className="leave-form-label"><span className="label-text">
-            From Date* <span className="required">*</span></span>
-            <input type="date" required />
+          {/* From Date */}
+          <label className="leave-form-label">
+            <span className="label-text">From Date *</span>
+            <input
+              type="date"
+              name="fromDate"
+              value={formValues.fromDate}
+              onChange={handleChange}
+            />
+            {formErrors.fromDate && (
+              <div className="form-error">{formErrors.fromDate}</div>
+            )}
           </label>
 
-          <label className="leave-form-label"><span className="label-text">
-            To Date* <span className="required">*</span></span>
-            <input type="date" required />
+          {/* To Date */}
+          <label className="leave-form-label">
+            <span className="label-text">To Date *</span>
+            <input
+              type="date"
+              name="toDate"
+              value={formValues.toDate}
+              onChange={handleChange}
+            />
+            {formErrors.toDate && (
+              <div className="form-error">{formErrors.toDate}</div>
+            )}
           </label>
 
-          <label className="leave-form-label"><span className="label-text">
-            Duration* <span className="required">*</span></span>
-            <input type="number" min="1" required />
+          {/* Duration */}
+          <label className="leave-form-label">
+            <span className="label-text">Duration (working days)</span>
+            <input type="number" value={formValues.duration} readOnly />
           </label>
 
-        <label className="leave-form-label">
-    Reason 
-  <textarea rows="3" required />
-</label>
-
+          {/* Reason */}
+          <label className="leave-form-label">
+            <span className="label-text">Reason</span>
+            <textarea
+              name="reason"
+              value={formValues.reason}
+              onChange={handleChange}
+              rows="3"
+            />
+          </label>
 
           <div className="form-actions">
             <button
-                className="lve-frm-btnns1"
-                type="button"
-                onClick={() => setShowForm(false)}>
-                 Cancel
+              className="lve-frm-btnns1"
+              type="button"
+              onClick={() => setShowForm(false)}
+            >
+              Cancel
             </button>
 
-                <button
-                     className="lve-frm-btnns2"
-                      type="submit"  >
-                     Submit
-                   </button>
+            <button
+              className="lve-frm-btnns2"
+              type="submit"
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
