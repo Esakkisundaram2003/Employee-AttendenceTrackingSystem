@@ -1,5 +1,195 @@
-.userattendence {
-  padding: 20px;
-  background: #fff;
+.attendance-page {
+  padding: 24px;
+  padding-bottom: 0;
+  
+}
+
+/* Generic row */
+.attendance-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.attendance-btn {
+  width: 140px;
+  height: 60px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.attendance-in {
+  background-color: #4caf50;
+  color: #fff;
+}
+.attendance-in:hover {
+  background-color: #3c9c40;
+}
+
+.attendance-out {
+  background-color: #f44336;
+  color: #fff;
+  /* padding: 50px;
+  padding-bottom: 60px; */
+}
+
+.attendance-out:hover {
+  background-color: #e0382c;
+}
+
+/* Date input */
+.attendance-date-input {
+  width: 125px;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  padding: 0 12px;
+}
+/* ===============================
+   Attendance Table Card
+================================ */
+.attendance-table-card {
+  margin-top: 50px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.075);
+  padding: 16px;
+}
+.attendance-table-scroll {
+  max-height: 230px;
+  overflow-y: auto;
+
+  border: 1px solid #0000002c;     /* or ridge if you want */
   border-radius: 8px;
+}
+
+/* Hide scrollbar but keep scrolling */
+.attendance-table-scroll {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / Edge legacy */
+}
+
+.attendance-table-scroll::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
+
+
+/* ===============================
+   Attendance Table
+================================ */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.attendance-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f5f7fb; /* important */
+}
+
+
+/* ===============================
+   Attendance Rows
+================================ */
+.attendance-row {
+  transition: background 0.2s ease;
+}
+
+/* .attendance-row:hover {
+  background: #f9f9f9;
+} */
+
+/* Zebra striping */
+/* Zebra striping */
+.attendance-table-body .attendance-row-data:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.attendance-table-body .attendance-row-data:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+/* ===============================
+   Attendance Cells
+================================ */
+.attendance-label,
+.attendance-value {
+  padding: 10px 14px;
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attendance-label {
+  font-weight: 600;
+  color: #333;
+  background: #f5f7fb;
+}
+
+.attendance-value {
+  color: #222;
+}
+
+/* Remove bottom border on last row */
+.attendance-row:last-child .attendance-label,
+.attendance-row:last-child .attendance-value {
+  border-bottom: none;
+}
+
+/* ===============================
+   Attendance Summary
+================================ */
+.attendance-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+  margin-top: 4%;
+  margin-left: 100px;
+}
+
+/* Individual box */
+.attendance-summary-box {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  gap: 8px;
+}
+
+/* Label text */
+.attendance-summary-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Highlighted value */
+.attendance-summary-value {
+  background: #eeeeee;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Attendance values container */
+.attendance-attendance-values {
+  display: flex;
+  gap: 8px;
 }
