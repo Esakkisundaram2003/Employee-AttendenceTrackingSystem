@@ -110,8 +110,31 @@ function UserLeave() {
     if (hasError) return;
 
     console.log("SUBMITTED DATA:", formValues);
+    // alert("Leave application submitted successfully!");
+      setFormValues({
+        period: "",
+        fromDate: "",
+         toDate: "",
+        duration: 0,
+        reason: ""
+        });
+  setFormErrors({});
+  setFromDay("");
+  setToDay("");
     setShowForm(false);
+   
   };
+   const handleCancel = () => {
+  setFormValues({
+    period: "",
+    fromDate: "",
+    toDate: "",
+    duration: 0,
+    reason: ""
+  });
+  setFormErrors({});
+  setShowForm(false);
+};
 
   /* ---------------- JSX ---------------- */
   return (
@@ -242,7 +265,7 @@ function UserLeave() {
             <button
               className="lve-frm-btnns1"
               type="button"
-              onClick={() => setShowForm(false)}
+              onClick={()=>{handleCancel()}}
             >
               Cancel
             </button>
