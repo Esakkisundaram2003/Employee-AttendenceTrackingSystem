@@ -150,17 +150,17 @@ function UserAttendence() {
       {/* Row 1: IN / OUT */}
       <div className="attendance-row attendance-actions">
         <button className="attendance-btn attendance-in">
-          IN
+          <b>IN</b>
         </button>
 
         <button className="attendance-btn attendance-out">
-          OUT
+          <b>OUT</b>
         </button>
       </div>
 
       {/* Row 2: Date Filter */}
       <div className="attendance-row attendance-filter-row">
-        <input
+        <span className="attendance-summary-label">Attendance Date: </span><input
           type="date"
           className="attendance-date-input"
           value={today}
@@ -198,7 +198,7 @@ function UserAttendence() {
 
         {/* Total Work Hours */}
         <div className="attendance-summary-box work-hrs">
-          <span className="attendance-summary-label">Total Work Hours</span>
+          <span className="attendance-summary-label"><b>Total Work Hours</b></span>
           <span className="attendance-summary-value">
             {latest.totalWorkHours}
           </span>
@@ -206,7 +206,7 @@ function UserAttendence() {
 
         {/* Total Out Time */}
         <div className="attendance-summary-box">
-          <span className="attendance-summary-label">Total Out Time</span>
+          <span className="attendance-summary-label"><b>Total Out Time</b></span>
           <span className="attendance-summary-value">
             {latest.totalOutTime}
           </span>
@@ -214,7 +214,7 @@ function UserAttendence() {
 
         {/* Attendance */}
         <div className="attendance-summary-box attendance">
-          <span className="attendance-summary-label">Attendance</span>
+          <span className="attendance-summary-label"><b>Attendance</b></span>
           <div className="attendance-attendance-values">
             <span className="attendance-summary-value">
               {latest.firstHalf === "present" ? "P" : "AB"}

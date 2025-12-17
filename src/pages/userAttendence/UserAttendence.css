@@ -47,28 +47,35 @@
 /* Date input */
 .attendance-date-input {
   width: 125px;
-  height: 44px;
-  border-radius: 6px;
+  height: 32px;
+  /* border-radius: 6px; */
   border: 1px solid #ccc;
   font-size: 14px;
   padding: 0 12px;
+}
+.attendance-filter-row {
+    /* top: 10%; */
+    margin-top: 7.5%;
+    margin-bottom: 4%;
+    justify-content: flex-start;
+    /* padding-left: 1%; */
 }
 /* ===============================
    Attendance Table Card
 ================================ */
 .attendance-table-card {
-  margin-top: 50px;
+  margin-top: -18px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.192);
   padding: 16px;
 }
 .attendance-table-scroll {
   max-height: 230px;
   overflow-y: auto;
 
-  border: 1px solid #0000002c;     /* or ridge if you want */
-  border-radius: 8px;
+  /* border: 1px solid #0000002c;*/
+  /* border-radius: 8px; */
 }
 
 /* Hide scrollbar but keep scrolling */
@@ -112,13 +119,13 @@
 
 /* Zebra striping */
 /* Zebra striping */
-.attendance-table-body .attendance-row-data:nth-child(odd) {
+/* .attendance-table-body .attendance-row-data:nth-child(odd) {
   background-color: #ffffff;
 }
 
 .attendance-table-body .attendance-row-data:nth-child(even) {
   background-color: #f2f2f2;
-}
+} */
 
 
 /* ===============================
