@@ -1,4 +1,4 @@
-/* Full layout: sidebar + main section */
+ /*Full layout: sidebar + main section */ 
 .layout {
   display: flex;
   height: 100%;
@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-/* Sidebar fixed */
+ Sidebar fixed 
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -17,9 +17,9 @@
   z-index: 100;
 }
 
-/* Main wrapper (beside sidebar) */
+/* Main wrapper (beside sidebar) 
 .main {
-  margin-left: 250px; /* same as sidebar width */
+  margin-left: 250px; /* same as sidebar width 
   width: calc(100% - 250px);
   display: flex;
   flex-direction: column;
@@ -46,3 +46,17 @@
   background: #f8f9fa;
 }
 */
+/* Default (expanded sidebar) */
+.main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.28s ease, width 0.28s ease;
+}
+
+/* When sidebar collapsed */
+.layout.sidebar-collapsed .main {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+}
