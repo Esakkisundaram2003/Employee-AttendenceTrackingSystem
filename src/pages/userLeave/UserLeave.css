@@ -2,9 +2,9 @@
    Page container
 ================================ */
 .userleave {
-  padding: 20px;
+  padding: 2%;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 0.6%;
 }
 
 /* ===============================
@@ -12,22 +12,22 @@
 ================================ */
 .leave-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 4%;
 }
 
 .info-box {
   border: 1.5px solid #000;
-  height: 70px;
+  height: 12vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 10px;
   background: transparent;
   margin: 0;
   color: #000;
@@ -37,13 +37,12 @@
    Table card
 ================================ */
 .leave-table-card-2 {
-  position: relative; /* anchor for floating button */
-  margin-top: 105px;
+  position: relative;
+  margin-top: 8%;
   background: #ffffff;
-  padding: 16px 16px 16px; /* extra top padding for comfort */
-  border-radius: 12px;
-
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  padding: 2%;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.171);
 }
 
 /* ===============================
@@ -51,19 +50,17 @@
 ================================ */
 .apply-btn.floating-action {
   position: absolute;
-  top: -58px;           /* clean separation */
-  right: 8px;
-  height: 40px;
-  width: auto;
-  padding: 8px 16px;
-  font-size: 13px;
+  top: -13%;
+  right: 2%;
+  height: 5vh;
+  padding: 0.6% 1.6%;
+  font-size: 0.8rem;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 5px;
   border: 1px solid #2c6fff;
   background-color: #2c6fff;
   color: #ffffff;
   cursor: pointer;
-
   box-shadow: 0 2px 2px rgba(0,0,0,0.22);
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -80,6 +77,27 @@
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+}
+
+/* ===============================
+   Leave Table Scroll
+================================ */
+.leave-table-scroll {
+  max-height: 55vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.leave-table-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.leave-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f5f7fb;
 }
 
 /* ===============================
@@ -107,8 +125,8 @@
 ================================ */
 .leave-label,
 .leave-value {
-  padding: 10px 14px;
-  font-size: 14px;
+  padding: 1% 1.4%;
+  font-size: 0.9rem;
   border-bottom: 1px solid #e0e0e0;
   text-align: left;
   white-space: nowrap;
@@ -135,8 +153,8 @@
    Overlay & blur
 ================================ */
 .blurred {
-  opacity: 0.35;           /* fades the content */
-  pointer-events: none;   /* disables interaction */
+  opacity: 0.35;
+  pointer-events: none;
   transition: opacity 0.25s ease;
 }
 
@@ -152,46 +170,39 @@
 ================================ */
 .leave-drawer {
   position: fixed;
-  top: -14px;
+  top: -4%;
   right: 0;
-  width: 25.33%;
+  width: 28%;
   height: 100vh;
   background: #ffffff;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
-  padding: 24px;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.267);
+  padding: 3%;
   z-index: 200;
-
-  transform: translateX(100%); /* fully hidden */
+  transform: translateX(100%);
   transition: transform 0.35s ease;
 }
 
 .leave-drawer.open {
-  transform: translateX(0); /* fully visible */
+  transform: translateX(0);
 }
-
 
 /* ===============================
    Form styling
 ================================ */
+
 .leave-drawer h2 {
   margin-bottom: 20px;
   font-size: 20px;
 }
 
-/* .leave-form-label {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 14px;
-  font-size: 14px;
-} */
- .leave-form-label {
+.leave-form-label {
   display: flex;
   flex-direction: column;
   gap: 6px;
   margin-bottom: 14px;
   font-size: 14px;
 }
+
 .label-text {
   display: inline-flex;
   align-items: center;
@@ -200,13 +211,6 @@
 
 .required {
   color: red;
-}
-.leave-form select {
-  height: 36px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  padding-left: 10px;
 }
 
 .leave-form input,
@@ -218,49 +222,44 @@
   border: 1px solid #ccc;
 }
 
-.leave-form textarea {
-  resize: none;
-}
-
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.form-actions button {
-  padding: 8px 14px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* .form-actions button[type="submit"] {
-  background: #2c6fff;
-  border: none;
-  color: #fff;
-}
-
-.form-actions button[type="button"] {
-  background: transparent;
-  border: 1px solid #ccc;
-} */
-
 .leave-form select {
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  padding-left: 10px;
+
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 
   background-color: #fff;
-  padding-right: 32px; /* space for custom arrow */
-  
+  padding-right: 32px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23666' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 14px center; /* 👈 move left/right here */
-  background-size: 10px 6px;
   background-position: right 16px center;
+  background-size: 10px 6px;
+}
 
+.leave-form textarea {
+  resize: none;
+}
+
+/* ===============================
+   Form actions
+================================ */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2%;
+  margin-top: 3%;
+}
+
+.form-actions button {
+  padding: 1% 2%;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .lve-frm-btnns1 {
@@ -274,36 +273,29 @@
   color: #fff;
 }
 
-/* Cancel button */
-.cancel-btn {
-  background: transparent;
-  border: 1px solid #ccc;
-}
-
-/* Submit button */
-.submit-btn {
-  background: #2c6fff;
-  border: none;
-  color: white;
-}
-
 /* Hover */
 .lve-frm-btnns1:hover {
   background: rgb(235, 235, 235);
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
+
 .lve-frm-btnns2:hover {
   background-color: #0051ff;
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
+
+/* ===============================
+   Helpers
+================================ */
 .day-hint {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #666;
-  margin-top: 4px;
+  margin-top: 0.5%;
 }
+
 .form-error {
-  margin-top: 4px;
-  font-size: 12px;
+  margin-top: 0.5%;
+  font-size: 0.75rem;
   color: #d32f2f;
   font-weight: 500;
 }
