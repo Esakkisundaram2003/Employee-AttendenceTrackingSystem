@@ -170,11 +170,11 @@ function UserLeave() {
                 <th className="leave-label">Application Date</th>
                 <th className="leave-label">Period</th>
                 <th className="leave-label">From Date</th>
-                <th className="leave-label">To Date</th>
+                <th className="leave-label">To Date</th> 
                 <th className="leave-label">Duration</th>
                 <th className="leave-label">Status</th>
               </tr>
-            </thead>
+            </thead> 
             <tbody className="leave-table-body">
               {leaveResponse.data.map((leave) => (
                 <tr key={leave.id} className="leave-row">
