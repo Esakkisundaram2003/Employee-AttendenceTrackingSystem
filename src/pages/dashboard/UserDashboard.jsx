@@ -9,7 +9,7 @@ export default function UserDashboard() {
   const dashboardData = {
     userId: 1,
     userName: "Esakki",
-    date: "2025-12-17",
+    date: new Date(),
     currentStatus: "In",
     loginTime: "07:30:30",
     logoutTime: "12:20:30",
